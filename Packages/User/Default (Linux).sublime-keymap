@@ -1,7 +1,7 @@
 [
 	{ "keys": ["ctrl+e"], "command": "move_to", "args": {"to": "hardeol", "extend": false} },
-	{ "keys": ["ctrl+w"], "command": "move_to", "args": {"to": "hardbol", "extend": false} },
-	{ "keys": ["ctrl+shift+w"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+	{ "keys": ["ctrl+w"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+	{ "keys": ["ctrl+shift+w"], "command": "move_to", "args": {"to": "hardbol", "extend": false} },
 
 
 	// Custom navigation using jkl;
