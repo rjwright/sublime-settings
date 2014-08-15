@@ -1,0 +1,71 @@
+[
+	{ "keys": ["ctrl+e"], "command": "move_to", "args": {"to": "hardeol", "extend": false} },
+	{ "keys": ["ctrl+w"], "command": "move_to", "args": {"to": "hardbol", "extend": false} },
+	{ "keys": ["ctrl+shift+w"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+
+
+	// Custom navigation using jkl;
+	// Move down a line
+	{ "keys": ["ctrl+k"], "command": "move", "args": {"by": "lines", "forward": true} },
+	// Move up a line
+	{ "keys": ["ctrl+l"], "command": "move", "args": {"by": "lines", "forward": false} },
+
+	// Move one character left
+	{ "keys": ["ctrl+j"], "command": "move", "args": {"by": "characters", "forward": false} },
+	// Move one character right
+	{ "keys": ["ctrl+;"], "command": "move", "args": {"by": "characters", "forward": true} },
+
+	// Move word left
+	{ "keys": ["ctrl+shift+j"], "command": "move", "args": {"by": "words", "forward": false, "extend": false} },
+	// Move word right
+	{ "keys": ["ctrl+shift+;"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": false} },
+
+	// Select to start of line below
+	{ "keys": ["alt+k"], "command": "run_macro_file", "args": {"file": "Packages/User/Select to Hard EOL.sublime-macro"} },
+	// Select to end of line above
+	{ "keys": ["alt+l"], "command": "run_macro_file", "args": {"file": "Packages/User/Select to Hard BOL.sublime-macro"} },
+
+	// Select one character left
+	{ "keys": ["alt+j"], "command": "move", "args": {"by": "characters", "forward": false, "extend": true} },
+	// Select one character right
+	{ "keys": ["alt+;"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true} },
+
+	// Select word left
+	{ "keys": ["alt+shift+j"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+	// Select word right
+	{ "keys": ["alt+shift+;"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+
+	// Replace commands over-written by navigation commands. NB: The above overwrites some other commands too;
+	// These are the ones that I personally find useful.
+	// Default is ctrl+shift+j
+	{ "keys": ["ctrl+shift+o"], "command": "expand_selection", "args": {"to": "indentation"} },
+	// Default is ctrl+l
+	{ "keys": ["alt+shift+l"], "command": "expand_selection", "args": {"to": "line"} },
+	// Default is ctrl+j
+	{ "keys": ["ctrl+alt+j"], "command": "join_lines" },
+
+
+	// Make escape clear single selection.
+	{ "keys": ["escape"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "num_selections", "operator": "equal", "operand": 1 }
+		]
+	},
+	// Repeated defaults so they aren't over-writen by the above.
+	{ "keys": ["escape"], "command": "hide_panel", "args": {"cancel": true},
+		"context":
+		[
+			{ "key": "panel_visible", "operator": "equal", "operand": true }
+		]
+	},
+	{ "keys": ["escape"], "command": "hide_overlay", "context":
+		[
+			{ "key": "overlay_visible", "operator": "equal", "operand": true }
+		]
+	},
+	{ "keys": ["escape"], "command": "hide_auto_complete", "context":
+		[
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": true }
+		]
+	}
+]
